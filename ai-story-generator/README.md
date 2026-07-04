@@ -1,4 +1,4 @@
-# 🌌 StoryLens — AI Image Story Generator
+# StoryLens — AI Image Story Generator
 
 Upload any image and instantly get a **caption**, **description**, and **creative story** — all independently regeneratable, with theme controls and 4 UI themes.
 
