@@ -82,7 +82,7 @@ python ml_models/caption_model.py
 cd backend
 uvicorn main:app --reload --host 0.0.0.0 --port 8080
 ```
-API docs available at: http://localhost:8000/docs
+API docs available at: http://localhost:8080/docs
 
 ### Open the frontend
 Simply open `frontend/index.html` in your browser:
