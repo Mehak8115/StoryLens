@@ -80,7 +80,7 @@ python ml_models/caption_model.py
 ### Start the backend
 ```bash
 cd backend
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+uvicorn main:app --reload --host 0.0.0.0 --port 8080
 ```
 API docs available at: http://localhost:8000/docs
 
@@ -99,9 +99,9 @@ start frontend/index.html
 
 > **Tip:** You can also serve the frontend with Python:
 > ```bash
-> cd frontend && python -m http.server 3000
+> cd frontend && python -m http.server 8080
 > ```
-> Then visit http://localhost:3000
+> Then visit http://localhost:8080
 
 ---
 
