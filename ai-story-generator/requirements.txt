@@ -1,0 +1,16 @@
+# Core API
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+pydantic==2.7.1
+
+# Image processing
+Pillow==10.3.0
+
+# AI / ML (optional but recommended)
+transformers==4.41.2
+torch==2.3.0          # CPU-only: pip install torch --index-url https://download.pytorch.org/whl/cpu
+anthropic==0.28.0     # For Claude text generation (needs ANTHROPIC_API_KEY)
+
+# Utilities
+python-dotenv==1.0.1

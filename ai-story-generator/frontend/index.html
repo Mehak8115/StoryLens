@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>StoryLens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="pbar" id="pbar"></div>
+
+<nav>
+  <div class="logo"><span class="logo-accent">Story</span>Lens</div>
+
+  <div class="nav-links">
+    <a href="index.html" class="nav-link active">✦ Story</a>
+    <a href="movie.html" class="nav-link">🎬 Movie Concept</a>
+  </div>
+
+  <div class="theme-wrap">
+    <button class="tbtn active" id="tbtn-light" onclick="applyTheme('light')">Light</button>
+    <button class="tbtn" id="tbtn-dark" onclick="applyTheme('dark')">Dark</button>
+  </div>
+</nav>
+
+<div class="layout">
+  <!-- LEFT -->
+  <aside class="left">
+
+    <div>
+      <div class="lbl">Image</div>
+      <div class="upload-zone" id="upzone">
+        <img id="prev" src="" alt="" style="display:none"/>
+        <div class="prev-ov">Click to change</div>
+        <div id="upph">
+          <!-- <div class="up-icon">🎞</div> -->
+          <div class="up-txt">Click or drop image<br/>JPG · PNG · WEBP</div>
+        </div>
+      </div>
+      <input type="file" id="file-in" accept="image/jpeg,image/png,image/webp"/>
+    </div>
+
+    <div>
+      <div class="lbl">Story Theme</div>
+      <select id="sel-theme" class="sl-select">
+        <option value="Adventure">Adventure</option>
+        <option value="Horror">Horror</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Emotional">Emotional</option>
+        <option value="Mystery">Mystery</option>
+        <option value="Romance">Romance</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Historical">Historical</option>
+      </select>
+    </div>
+
+    <div>
+      <div class="lbl">
+        Word Count
+        <span class="lbl-val" id="wc-live">120 words</span>
+      </div>
+      <input type="number" id="wc-in" value="120" min="50" max="2000" step="10" class="sl-input"/>
+      <div class="chip-row" style="margin-top:8px">
+        <button class="chip" data-wc="80">Short</button>
+        <button class="chip" data-wc="150">Medium</button>
+        <button class="chip" data-wc="300">Long</button>
+      </div>
+    </div>
+
+    <div id="err" class="err-box"></div>
+
+    <button class="gen-btn" id="gen-btn">
+      <span id="g-ico">✦</span>
+      <span id="g-txt">Generate Story</span>
+    </button>
+
+    <div class="stats" id="stats">
+      <div class="stat-row"><span class="stat-lbl">Target</span><span class="stat-val" id="st-target">—</span></div>
+      <div class="stat-div"></div>
+      <div class="stat-row"><span class="stat-lbl">Generated</span><span class="stat-val" id="st-actual">—</span></div>
+    </div>
+
+  </aside>
+
+  <!-- RIGHT -->
+  <main class="right">
+
+    <div class="empty" id="empty">
+      <div class="empty-icon">📖</div>
+      <div class="empty-title">Your story awaits</div>
+      <div class="empty-sub">Upload an image and let the story unfold</div>
+    </div>
+
+    <!-- Caption -->
+    <div class="mcard story-card" id="c-cap" style="display:none">
+      <div class="card-hd">
+        <div class="card-badge">✦ CAPTION</div>
+        <button class="regen-btn" id="r-cap" disabled>
+          <span class="spin-ico">↻</span><span class="rtxt">↺ Regenerate</span>
+        </button>
+      </div>
+      <div class="card-bd">
+        <div class="cap-txt" id="o-cap"></div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mcard story-card" id="c-desc" style="display:none">
+      <div class="card-hd">
+        <div class="card-badge">◎ DESCRIPTION</div>
+        <button class="regen-btn" id="r-desc" disabled>
+          <span class="spin-ico">↻</span><span class="rtxt">↺ Regenerate</span>
+        </button>
+      </div>
+      <div class="card-bd">
+        <div class="desc-txt" id="o-desc"></div>
+      </div>
+    </div>
+
+    <!-- Story -->
+    <div class="mcard story-card" id="c-story" style="display:none">
+      <div class="card-hd">
+        <div class="card-badge">✎ STORY</div>
+        <button class="regen-btn" id="r-story" disabled>
+          <span class="spin-ico">↻</span><span class="rtxt">↺ Regenerate</span>
+        </button>
+      </div>
+      <div class="card-bd">
+        <div class="story-txt" id="o-story"></div>
+      </div>
+      <div class="card-ft">
+        <!-- <div class="wc-group">
+          <span class="wc-num" id="wc-num">— words</span>
+          <span class="wc-pct" id="wc-pct"></span>
+        </div> -->
+        <button class="dl-btn" id="dl-btn">⬇ Download.txt</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- hidden elements for JS compatibility -->
+<!-- <span id="wc-bar" style="display:none"></span>
+<span id="st-acc" style="display:none"></span> -->
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
